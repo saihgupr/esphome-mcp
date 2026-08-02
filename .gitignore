@@ -1,0 +1,24 @@
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+*.log
+
+# Sensitive - never commit these
+secrets.yaml
+
+# ESPHome device configs (contain personal automation logic & infra details)
+esp32-*.yaml
+*.yaml
+!server_config.yaml
+
+# ESPHome local build cache
+.esphome/
+
+# Scratch/temp scripts generated during debugging
+compile_and_download.py
+download_factory_bin.py
+fix_yaml_quotes.py
+update_single_click.py
+test_arduino_ota.py
+.git-backup-*
