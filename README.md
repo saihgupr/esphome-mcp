@@ -67,6 +67,37 @@ If you prefer to configure manually, create `.venv` and update your MCP client c
 }
 ```
 
+---
+
+## Local AI Models & Self-Hosted Clients
+
+Because ESPHome MCP Server runs as a standard `stdio` MCP process, it works with open-source local LLMs (e.g., Qwen2.5-Coder, Llama 3) via MCP-compatible clients:
+
+### Compatible Local Clients & Setup
+
+1. **Continue (VS Code / JetBrains)**:
+   Add the server to your `.continue/config.json` under `experimental.mcpServers`:
+   ```json
+   {
+     "name": "esphome",
+     "command": "/path/to/esphome-mcp/.venv/bin/python",
+     "args": ["/path/to/esphome-mcp/server.py"],
+     "env": {
+       "ESPHOME_HOST": "192.168.1.4",
+       "ESPHOME_PORT": "6052"
+     }
+   }
+   ```
+
+2. **Open WebUI / Ollama / LM Studio**:
+   Connect `esphome-mcp` using any MCP stdio bridge tool or client extension (such as Open WebUI MCP Actions or MCPO). Point your client at your local model server (e.g. Ollama `qwen2.5-coder` or `llama3.3`).
+
+3. **Cursor / LibreChat**:
+   Add `esphome-mcp` as a stdio server in settings and connect your preferred local provider endpoint (Ollama `/v1`, LM Studio `/v1`, or vLLM).
+
+> **Tip for Local Models**: Tool calling requires reliable function call formatting. We recommend function-calling capable local models such as **Qwen2.5-Coder** (14B/32B) or **Llama 3.1/3.3** for optimal YAML editing and tool execution.
+
+
 
 ## Environment Variables
 
