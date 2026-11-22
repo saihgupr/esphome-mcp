@@ -1,3 +1,2 @@
-fastmcp>=3.4.5
-websockets>=17.0.1
+mcp>=2
 httpx>=0.28.1
