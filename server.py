@@ -5,10 +5,10 @@ import json
 import asyncio
 import time
 import httpx
-from mcp.server.fastmcp import FastMCP
+from mcp.server.mcpserver import MCPServer
 
-# Initialize FastMCP Server
-mcp = FastMCP("esphome")
+# Initialize MCP Server
+mcp = MCPServer("esphome")
 
 ESPHOME_HOST = os.environ.get("ESPHOME_HOST", "192.168.1.4")
 ESPHOME_PORT = int(os.environ.get("ESPHOME_PORT", "6052"))
